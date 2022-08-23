@@ -1,0 +1,82 @@
+@font-face {
+    font-family: Norse;
+    src: url(../fonts/Norse-Bold.otf);
+}
+
+@font-face {
+    font-family: Montserat-Alternate;
+    src: url(../fonts/MontserratAlternates-Regular.ttf);
+}
+
+:root {
+    --white-color: #ffffff;
+    --dark-color-transparent: rgba(14,14,14,0.5);
+    --logo-font: Norse;
+    --font-other: Montserat-Alternate;
+    font-size: 16px;
+}
+
+body {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+}
+
+.logo-section {
+    width: 450px;
+    height: 800px;
+    background-image: url(../images/toronto-cn.jpeg);
+    background-repeat: no-repeat;
+    background-size: 450px 800px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-frame {
+    height: 180px;
+    width: 100%;
+    margin-top: 310px;
+    background-color: var(--dark-color-transparent);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-frame img {
+    height: 160px;
+    width: auto;
+}
+
+.logo-frame p {
+    font-family: var(--logo-font);
+    font-size: 4rem;
+    color: var(--white-color);
+}
+
+.attribution-text {
+    margin-bottom: 10px;
+    color: var(--white-color);
+    font-family: var(--font-other);
+}
+
+.attribution-text a,
+.attribution-text a:visited  {
+    color: var(--white-color);
+    font-family: var(--font-other);
+}
