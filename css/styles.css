@@ -1,6 +1,11 @@
 @font-face {
-    font-family: Norse;
-    src: url(../fonts/Norse-Bold.otf);
+    font-family: Alumni;
+    src: url(../fonts/AlumniSansPinstripe-Regular.ttf);
+}
+
+@font-face {
+    font-family: Germania;
+    src: url(../fonts/GermaniaOne-Regular.ttf);
 }
 
 @font-face {
@@ -10,9 +15,13 @@
 
 :root {
     --white-color: #ffffff;
+    --grey-color: grey;
+    --background-light: #E0E0E0;
+    --background-dark: #c3d6e5;
     --dark-color-transparent: rgba(14,14,14,0.5);
-    --logo-font: Norse;
-    --font-other: Montserat-Alternate;
+    --font-logo: Germania;
+    --font-attribution: Montserat-Alternate;
+    --font-form: Alumni;
     font-size: 16px;
 }
 
@@ -30,13 +39,16 @@ p {
 }
 
 .main {
+    min-height: 800px;
+
     display: flex;
     align-items: center;
 }
 
 .logo-section {
     width: 450px;
-    height: 800px;
+    min-width: 450px;
+    height: 100%;
     background-image: url(../images/toronto-cn.jpeg);
     background-repeat: no-repeat;
     background-size: 450px 800px;
@@ -64,19 +76,61 @@ p {
 }
 
 .logo-frame p {
-    font-family: var(--logo-font);
-    font-size: 4rem;
+    font-family: var(--font-logo);
+    font-size: 6rem;
     color: var(--white-color);
 }
 
 .attribution-text {
     margin-bottom: 10px;
     color: var(--white-color);
-    font-family: var(--font-other);
+    font-family: var(--font-attribution);
 }
 
 .attribution-text a,
 .attribution-text a:visited  {
     color: var(--white-color);
-    font-family: var(--font-other);
+    font-family: var(--font-attribution);
+}
+
+.sign-up-section {
+    width: 600px;
+    height: 100%;
+
+    background-color: var(--background-dark);
+
+    font-family: var(--font-form);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-up-text {
+    height: 250px;
+    font-size: 2rem;
+}
+
+.sign-up-inputs {
+    height: 300px;
+    background-color: var(--white-color);
+    box-shadow: 0px 5px 5px var(--grey-color);
+}
+
+.sign-up-inputs .inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.sign-up-inputs .inputs div {
+    min-width: 250px;
+    font-size: 1.25rem;
+    
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sign-up-submit {
+    height: 250px;
 }
