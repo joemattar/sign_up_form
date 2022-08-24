@@ -26,6 +26,7 @@
 :root {
     --black-color: #000000;
     --blue-color: blue;
+    --red-color: red;
     --white-color: #ffffff;
     --grey-color: grey;
     --background-light: #E0E0E0;
@@ -149,7 +150,7 @@ p, pre {
     align-items: center;
 }
 
-.sign-up-inputs form p {
+.sign-up-inputs form>p {
     font-size: 1.25rem;
     margin: 25px;
 }
@@ -161,24 +162,34 @@ p, pre {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    row-gap: 25px;
+    row-gap: 10px;
     column-gap: 25px;
 }
 
 .sign-up-inputs .inputs div {
-    width: 260px;
-    /* min-width: 250px; */
+    width: 250px;
     font-size: 0.75rem;
     
     display: flex;
     flex-direction: column;
 }
 
+.sign-up-inputs .inputs div p+p {
+    margin-top: 5px;
+    color: var(--white-color);
+}
+
 .sign-up-inputs .inputs div label{
     font-family: var(--font-form-bold);
 }
 
+.sign-up-inputs .inputs div label+p {
+
+}
+
 .sign-up-inputs .inputs div input{
+    box-sizing: border-box;
+    width: 85%;
     height: 1.5rem;
 
     border-style: solid;
@@ -192,6 +203,25 @@ p, pre {
     border-width: 1px;
     border-color: var(--blue-color);
     box-shadow: 5px 5px 5px var(--grey-color);
+}
+
+div.check {
+    width: 1.5rem;
+    /* CHECK HERE */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.check img {
+    height: 1rem;
+    width: auto;
+}
+
+span.error {
+    color: var(--red-color);
+    font-family: var(--font-form-bold);
 }
 
 .sign-up-submit {
