@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: Noto-Sans-Bold;
+    src: url(../fonts/NotoSans-Bold.ttf);
+}
+
+@font-face {
     font-family: Noto-Sans-Extra-Bold;
     src: url(../fonts/NotoSans-ExtraBold.ttf);
 }
@@ -20,6 +25,7 @@
 
 :root {
     --black-color: #000000;
+    --blue-color: blue;
     --white-color: #ffffff;
     --grey-color: grey;
     --background-light: #E0E0E0;
@@ -30,6 +36,7 @@
     --font-logo: Germania;
     --font-attribution: Montserat-Alternate;
     --font-form: Noto-Sans;
+    --font-form-bold: Noto-Sans-Bold;
     --font-form-extra-bold: Noto-Sans-Extra-Bold;
     font-size: 16px;
 }
@@ -148,7 +155,7 @@ p, pre {
 }
 
 .sign-up-inputs .inputs {
-    margin: 50px 25px;
+    margin: 25px 25px 50px 25px;
 
     display: flex;
     flex-wrap: wrap;
@@ -165,6 +172,26 @@ p, pre {
     
     display: flex;
     flex-direction: column;
+}
+
+.sign-up-inputs .inputs div label{
+    font-family: var(--font-form-bold);
+}
+
+.sign-up-inputs .inputs div input{
+    height: 1.5rem;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    border-color: var(--grey-color);
+}
+
+.sign-up-inputs .inputs div input:focus{
+    outline: 0px;
+    border-width: 1px;
+    border-color: var(--blue-color);
+    box-shadow: 5px 5px 5px var(--grey-color);
 }
 
 .sign-up-submit {
