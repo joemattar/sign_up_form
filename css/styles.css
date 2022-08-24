@@ -1,6 +1,11 @@
 @font-face {
-    font-family: Alumni;
-    src: url(../fonts/AlumniSansPinstripe-Regular.ttf);
+    font-family: Noto-Sans;
+    src: url(../fonts/NotoSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Noto-Sans-Extra-Bold;
+    src: url(../fonts/NotoSans-ExtraBold.ttf);
 }
 
 @font-face {
@@ -14,41 +19,50 @@
 }
 
 :root {
+    --black-color: #000000;
     --white-color: #ffffff;
     --grey-color: grey;
     --background-light: #E0E0E0;
     --background-dark: #c3d6e5;
+    --background-button-dark: #1e3848;
+    --background-button-light: #476479;
     --dark-color-transparent: rgba(14,14,14,0.5);
     --font-logo: Germania;
     --font-attribution: Montserat-Alternate;
-    --font-form: Alumni;
+    --font-form: Noto-Sans;
+    --font-form-extra-bold: Noto-Sans-Extra-Bold;
     font-size: 16px;
 }
 
 body {
     height: 100vh;
+    margin: 0;
+    padding: 0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-p {
+p, pre {
     margin: 0;
     padding: 0;
 }
 
 .main {
-    min-height: 800px;
+    margin-top: 15px;
+    padding-bottom: 3rem;
 
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    gap: 0;
 }
 
 .logo-section {
     width: 450px;
-    min-width: 450px;
-    height: 100%;
+    height: 800px;
     background-image: url(../images/toronto-cn.jpeg);
     background-repeat: no-repeat;
     background-size: 450px 800px;
@@ -94,8 +108,8 @@ p {
 }
 
 .sign-up-section {
-    width: 600px;
-    height: 100%;
+    width: clamp(450px, 50vw, 600px);
+    height: 800px;
 
     background-color: var(--background-dark);
 
@@ -106,31 +120,122 @@ p {
 }
 
 .sign-up-text {
-    height: 250px;
-    font-size: 2rem;
+    box-sizing: border-box;
+    margin: 25px;
+    font-size: 1rem;
+
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .sign-up-inputs {
-    height: 300px;
     background-color: var(--white-color);
     box-shadow: 0px 5px 5px var(--grey-color);
+
+    /* flex-grow: 1; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-up-inputs form p {
+    font-size: 1.25rem;
+    margin: 25px;
 }
 
 .sign-up-inputs .inputs {
+    margin: 50px 25px;
+
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    row-gap: 25px;
+    column-gap: 25px;
 }
 
 .sign-up-inputs .inputs div {
-    min-width: 250px;
-    font-size: 1.25rem;
+    width: 260px;
+    /* min-width: 250px; */
+    font-size: 0.75rem;
     
     display: flex;
     flex-direction: column;
-
 }
 
 .sign-up-submit {
-    height: 250px;
+    box-sizing: border-box;
+    margin: 25px;
+
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.sign-up-submit button {
+    font-family: var(--font-attribution);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--white-color);
+
+    background-color: var(--background-button-light);
+
+    padding: 0.5rem 2rem;
+
+    border-style: none;
+    border-radius: 5px;
+}
+
+.sign-up-submit button:hover {
+    background-color: var(--background-button-dark);
+}
+
+.sign-up-submit p {
+    font-family: var(--font-form);
+}
+
+.sign-up-submit p a {
+    text-decoration: none;
+    font-family: var(--font-form-extra-bold);
+    color: var(--background-button-light);
+}
+
+.sign-up-submit p a:hover {
+    text-decoration: none;
+    font-family: var(--font-form-extra-bold);
+    color: var(--background-button-dark);
+}
+
+
+.footer {
+    font-family: var(--font-attribution);
+    margin-top: 3rem;
+    height: 3rem;
+    width: 100%;
+    background-color: var(--background-light);
+
+    position: fixed;
+    bottom: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer a {
+    display: flex;
+    align-items: center;
+}
+
+.footer a img {
+    height: 1rem;
+    width: auto;
 }
