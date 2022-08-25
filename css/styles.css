@@ -166,7 +166,7 @@ p, pre {
     column-gap: 25px;
 }
 
-.sign-up-inputs .inputs div {
+.sign-up-inputs .inputs>div {
     width: 250px;
     font-size: 0.75rem;
     
@@ -174,22 +174,22 @@ p, pre {
     flex-direction: column;
 }
 
-.sign-up-inputs .inputs div p+p {
-    margin-top: 5px;
-    color: var(--white-color);
-}
-
 .sign-up-inputs .inputs div label{
     font-family: var(--font-form-bold);
 }
 
-.sign-up-inputs .inputs div label+p {
+.sign-up-inputs .inputs div label+div {
+    display: flex;
+}
 
+.sign-up-inputs .inputs div div+p {
+    margin-top: 5px;
+    color: var(--white-color);
 }
 
 .sign-up-inputs .inputs div input{
     box-sizing: border-box;
-    width: 85%;
+    width: 225px;
     height: 1.5rem;
 
     border-style: solid;
@@ -207,6 +207,7 @@ p, pre {
 
 div.check {
     width: 1.5rem;
+    height: 1.5rem;
     /* CHECK HERE */
 
     display: flex;
