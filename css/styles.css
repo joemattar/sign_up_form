@@ -172,6 +172,7 @@ p, pre {
     
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 .sign-up-inputs .inputs div label {

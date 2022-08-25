@@ -6,6 +6,10 @@ const inputLastName = document.querySelector("#last-name");
 const checkImageLastName = document.querySelector("#last-name+.check>img");
 const spanLastName = document.querySelector(".last-name-error");
 
+const inputEmail = document.querySelector("#email");
+const checkImageEmail = document.querySelector("#email+.check>img");
+const spanEmail = document.querySelector(".email-error");
+
 
 const submitButton = document.getElementById("submit-button");
 
@@ -34,9 +38,22 @@ inputLastName.addEventListener("input", () => {
     } else if (inputLastName.value.length >= 3 || inputLastName.value.length <= 30) {
         spanLastName.textContent = "";
         checkImageLastName.setAttribute("src", "./images/green_check.png");
-}})
+    }
+})
 
-
+// User input validation on Last Name input
+inputEmail.addEventListener("input", () => {
+    if (inputEmail.value.length === 0 ) {
+        spanEmail.textContent = "EMAIL IS A REQUIRED FIELD";
+        checkImageEmail.setAttribute("src", "./images/red_x.png");
+    } else if (inputEmail.value.length > 0 && inputEmail.validity.valid !== true) {
+        spanEmail.textContent = "PLEASE ENTER A VALID EMAIL";
+        checkImageEmail.setAttribute("src", "./images/red_x.png");
+    } else if (inputEmail.value.length > 0 && inputEmail.validity.valid === true) {
+        spanEmail.textContent = "";
+        checkImageEmail.setAttribute("src", "./images/green_check.png");
+    }
+})
 
 // ADD VALIDATION UPON SUBMIT BUTTON CLICK
 submitButton.addEventListener("click", () => {
