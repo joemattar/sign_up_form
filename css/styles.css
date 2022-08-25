@@ -156,7 +156,7 @@ p, pre {
 }
 
 .sign-up-inputs .inputs {
-    margin: 25px 25px 50px 25px;
+    margin: 25px 25px 25px 25px;
 
     display: flex;
     flex-wrap: wrap;
@@ -174,7 +174,7 @@ p, pre {
     flex-direction: column;
 }
 
-.sign-up-inputs .inputs div label{
+.sign-up-inputs .inputs div label {
     font-family: var(--font-form-bold);
 }
 
@@ -223,6 +223,14 @@ span.error {
     color: var(--red-color);
     font-family: var(--font-form-bold);
     font-size: 0.65rem;
+}
+
+#required-field-text {
+    font-size: 0.75rem;
+    margin: 0;
+    font-style: italic;
+    width: 250px;
+
 }
 
 .sign-up-submit {

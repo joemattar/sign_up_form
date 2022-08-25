@@ -51,7 +51,7 @@
                                 <p>.<span class="error last-name-error"></span></p>
                             </div>
                             <div>
-                                <label for="email">EMAIL</label>
+                                <label for="email">EMAIL *</label>
                                 <div>
                                     <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
                                     <div class="check">
@@ -71,7 +71,7 @@
                                 <p>.<span class="error phone-error"></span></p>
                             </div>
                             <div>
-                                <label for="password">PASSWORD</label>
+                                <label for="password">PASSWORD *</label>
                                 <div>
                                     <input type="password" id="password" name="password" required>
                                     <div class="check">
@@ -81,7 +81,7 @@
                                 <p>.<span class="error password-error"></span></p>
                             </div>
                             <div>
-                                <label for="confirm-password">CONFIRM PASSWORD</label>
+                                <label for="confirm-password">CONFIRM PASSWORD *</label>
                                 <div>
                                     <input type="password" id="confirm-password" name="confirm-password" required>
                                     <div class="check">
@@ -90,7 +90,9 @@
                                 </div>
                                 <p>.<span class="error confirm-password-error"></span></p>
                             </div>
-                        </div>                        
+                            <div id="required-field-text" >* Indicate required fields</div>
+                        </div>
+                                              
                     </form>
                 </div>
                 <div class="sign-up-submit">
