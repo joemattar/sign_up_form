@@ -19,12 +19,15 @@ inputFirstName.addEventListener("input", () => {
     if (inputFirstName.value.length === 0 ) {
         spanFirstName.textContent = "";
         checkImageFirstName.setAttribute("src", "");
+        inputFirstName.style.removeProperty("border-color");
     } else if (inputFirstName.value.length < 3 || inputFirstName.value.length > 30) {
         spanFirstName.textContent = "FIRST NAME MUST BE 3-30 CHARACTERS";
         checkImageFirstName.setAttribute("src", "./images/red_x.png");
+        inputFirstName.style.setProperty("border-color", "var( --red-color)");
     } else if (inputFirstName.value.length >= 3 || inputFirstName.value.length <= 30) {
         spanFirstName.textContent = "";
         checkImageFirstName.setAttribute("src", "./images/green_check.png");
+        inputFirstName.style.removeProperty("border-color");
 }})
 
 // User input validation on Last Name input
@@ -32,12 +35,15 @@ inputLastName.addEventListener("input", () => {
     if (inputLastName.value.length === 0 ) {
         spanLastName.textContent = "";
         checkImageLastName.setAttribute("src", "");
+        inputLastName.style.removeProperty("border-color");
     } else if (inputLastName.value.length < 3 || inputLastName.value.length > 30) {
         spanLastName.textContent = "LAST NAME MUST BE 3-30 CHARACTERS";
         checkImageLastName.setAttribute("src", "./images/red_x.png");
+        inputLastName.style.setProperty("border-color", "var( --red-color)");
     } else if (inputLastName.value.length >= 3 || inputLastName.value.length <= 30) {
         spanLastName.textContent = "";
         checkImageLastName.setAttribute("src", "./images/green_check.png");
+        inputLastName.style.removeProperty("border-color");
     }
 })
 
@@ -46,12 +52,15 @@ inputEmail.addEventListener("input", () => {
     if (inputEmail.value.length === 0 ) {
         spanEmail.textContent = "EMAIL IS A REQUIRED FIELD";
         checkImageEmail.setAttribute("src", "./images/red_x.png");
+        inputEmail.style.setProperty("border-color", "var( --red-color)");
     } else if (inputEmail.value.length > 0 && inputEmail.validity.valid !== true) {
         spanEmail.textContent = "PLEASE ENTER A VALID EMAIL";
         checkImageEmail.setAttribute("src", "./images/red_x.png");
+        inputEmail.style.setProperty("border-color", "var( --red-color)");
     } else if (inputEmail.value.length > 0 && inputEmail.validity.valid === true) {
         spanEmail.textContent = "";
         checkImageEmail.setAttribute("src", "./images/green_check.png");
+        inputEmail.style.removeProperty("border-color");
     }
 })
 
