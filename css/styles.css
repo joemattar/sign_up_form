@@ -206,9 +206,8 @@ p, pre {
 }
 
 div.check {
-    width: 1.5rem;
+    width: 25px;
     height: 1.5rem;
-    /* CHECK HERE */
 
     display: flex;
     align-items: center;
@@ -223,6 +222,7 @@ div.check img {
 span.error {
     color: var(--red-color);
     font-family: var(--font-form-bold);
+    font-size: 0.65rem;
 }
 
 .sign-up-submit {
