@@ -79,17 +79,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // declare a variable slots to fetch unique data-slots symbols
         const slots = new Set(el.dataset.slots || "_");
 
-
+        // CODE below to study
         // const prev = (j => Array.from(pattern, (elem,index) => slots.has(elem) ? j = index + 1 : j ))(0);
-        const prev = Array.from(pattern, (elem,index) => {
-                if (slots.has(elem)) {
-                    return index + 1;
-                } else {
-                    return 0;
-                }
-            });
-        // REFINE ABOVE!!
-        console.log(prev)
+  
+        // Creates an array of previous ???
+        let prev = Array.from(pattern);
+        for (let i = 0; i < prev.length; i++) {
+            if (slots.has(prev[i])) {
+                prev[i] = i + 1;
+            } else if (i === 0) {
+                prev[i] = 0;
+            } else if (prev[i-1] > 0) {
+                prev[i] = prev[i-1];
+            } else {
+                prev[i] = 0;
+            }
+        }
 
         // Find the index in pattern's array that matched the first instance of data-slots symbol
         const first = [...pattern].findIndex(c => slots.has(c));
@@ -97,23 +102,41 @@ document.addEventListener('DOMContentLoaded', () => {
         // Regex constructor depending on the element data-accept attribute
         const accept = new RegExp(el.dataset.accept || "\\d", "g");
 
-        const clean = input => {
-                input = input.match(accept) || [];
-                return Array.from(pattern, c =>
-                    input[0] === c || slots.has(c) ? input.shift() || c : c
-                );
-            };
+        // Function to delete the data slot symbol for the inputted digit
+        function clean(input) {
+            // Create an array of accepted inputs so far
+            input = input.match(accept) || [];
+            // Use the created array to replace data slot symbols in pattern array and return the "clean" array
+            return Array.from(pattern, c => {
+                if (input[0] === c || slots.has(c)) {
+                    return input.shift() || c
+                } else {
+                    return c
+                }
+            })
+        };
 
-        const format = () => {
-                const [i, j] = [el.selectionStart, el.selectionEnd].map(i => {
-                    i = clean(el.value.slice(0, i)).findIndex(c => slots.has(c));
-                    return i<0? prev[prev.length-1]: back? prev[i-1] || first: i;
-                });
-                el.value = clean(el.value).join``;
-                el.setSelectionRange(i, j);
-                back = false;
-            };
-        
+        function format() {
+            // Find the placement of the cursor in a valid location just after the closest previous valid character
+            const [i, j] = [el.selectionStart, el.selectionEnd].map(k => {
+                k = clean(el.value.slice(0, k)).findIndex(c => slots.has(c));
+                console.log(k)
+                if (k < 0) {
+                    return prev[prev.length-1]
+                } else if (back) {
+                    return prev[k-1] || first
+                } else {
+                    return k
+                }
+            });
+
+            // Join the clean array into a string
+            el.value = clean(el.value).join("");
+            // Place the curser in the valid location
+            el.setSelectionRange(i, j);
+            back = false;
+        };
+
         // Event listener changes {back} to true when backspace key is pressed
         let back = false;
         el.addEventListener("keydown", (e) => {
