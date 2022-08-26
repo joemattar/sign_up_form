@@ -10,9 +10,12 @@ const inputEmail = document.querySelector("#email");
 const checkImageEmail = document.querySelector("#email+.check>img");
 const spanEmail = document.querySelector(".email-error");
 
+const inputPhone = document.querySelector("#phone");
+const checkImagePhone = document.querySelector("#phone+.check>img");
+const spanPhone = document.querySelector(".phone-error");
+
 
 const submitButton = document.getElementById("submit-button");
-
 
 // User input validation on First Name input
 inputFirstName.addEventListener("input", () => {
@@ -47,7 +50,7 @@ inputLastName.addEventListener("input", () => {
     }
 })
 
-// User input validation on Last Name input
+// User input validation on Email input
 inputEmail.addEventListener("input", () => {
     if (inputEmail.value.length === 0 ) {
         spanEmail.textContent = "EMAIL IS A REQUIRED FIELD";
@@ -64,12 +67,7 @@ inputEmail.addEventListener("input", () => {
     }
 })
 
-// ADD VALIDATION UPON SUBMIT BUTTON CLICK
-submitButton.addEventListener("click", () => {
-    spanFirstName.textContent = "TESTING SUBMIT BUTTON";
-})
-
-
+// GENERAL MASKING - BUT SPECIFICALLY FOR PHONE INPUT
 // Add event listener when the HTML document has been completely parsed, and all deferred scripts have downloaded
 document.addEventListener('DOMContentLoaded', () => {
     // for all element that have an attribute placeholder and an attribute data-masks
@@ -120,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Find the placement of the cursor in a valid location just after the closest previous valid character
             const [i, j] = [el.selectionStart, el.selectionEnd].map(k => {
                 k = clean(el.value.slice(0, k)).findIndex(c => slots.has(c));
-                console.log(k)
                 if (k < 0) {
                     return prev[prev.length-1]
                 } else if (back) {
@@ -153,8 +150,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.value = "";
         }});
     }
-});
 
+    // User input validation on Phone input
+    inputPhone.addEventListener("input", () => {
+    if (inputPhone.value === inputPhone.placeholder) {
+        spanPhone.textContent = "";
+        checkImagePhone.setAttribute("src", "");
+        inputPhone.style.removeProperty("border-color");
+    } else if (inputPhone.validity.patternMismatch) {
+        spanPhone.textContent = "PLEASE ENTER A 10 DIGIT PHONE NUMBER";
+        checkImagePhone.setAttribute("src", "./images/red_x.png");
+        inputPhone.style.setProperty("border-color", "var( --red-color)");
+    } else if (!inputPhone.validity.patternMismatch) {
+        spanPhone.textContent = "";
+        checkImagePhone.setAttribute("src", "./images/green_check.png");
+        inputPhone.style.removeProperty("border-color");
+    }
+})
+});
 
 // HTML Examples for Masks
 {/*
@@ -169,3 +182,10 @@ Alphanumeric:
 Credit Card:
 <input placeholder=".... .... .... ...." data-slots="." data-accept="\d" size="19">
 */}
+
+
+
+// ADD VALIDATION UPON SUBMIT BUTTON CLICK
+submitButton.addEventListener("click", () => {
+    spanFirstName.textContent = "TESTING SUBMIT BUTTON";
+})
