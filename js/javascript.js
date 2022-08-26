@@ -14,6 +14,13 @@ const inputPhone = document.querySelector("#phone");
 const checkImagePhone = document.querySelector("#phone+.check>img");
 const spanPhone = document.querySelector(".phone-error");
 
+const inputPassword = document.querySelector("#password");
+const checkImagePassword = document.querySelector("#password+.check>img");
+const spanPasswordUppercase = document.querySelector(".char-uppercase");
+const spanPasswordLowercase = document.querySelector(".char-lowercase");
+const spanPasswordNumber = document.querySelector(".char-number");
+const spanPasswordSymbol = document.querySelector(".char-symbol");
+const spanPasswordMinimum = document.querySelector(".char-minimum");
 
 const submitButton = document.getElementById("submit-button");
 

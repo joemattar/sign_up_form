@@ -73,12 +73,17 @@
                             <div>
                                 <label for="password">PASSWORD *</label>
                                 <div>
-                                    <input type="password" id="password" name="password" required>
+                                    <input type="password" id="password" name="password" minlength="8" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!#\$%&'\(\)\*\+,\-\.\/:;=>\?@\[\\\]\^_`\{\|\}~])[A-Za-z\d!#\$%&'\(\)\*\+,\-\.\/:;=>\?@\[\\\]\^_`\{\|\}~]{8,}">
                                     <div class="check">
                                         <img src="" alt="">
                                     </div>
                                 </div>
-                                <p>.<span class="error password-error"></span></p>
+                                <p>.<span class="error password-error char-uppercase"></span></p>
+                                <p><span class="error password-error char-lowercase"></span></p>
+                                <p><span class="error password-error char-number"></span></p>
+                                <p><span class="error password-error char-symbol"></span></p>
+                                <p><span class="error password-error char-minimum"></span></p>
+
                             </div>
                             <div>
                                 <label for="confirm-password">CONFIRM PASSWORD *</label>
