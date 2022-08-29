@@ -235,9 +235,8 @@ inputPassword.addEventListener("input", () => {
         if (inputPassword.value.length >= 8) {
             spanPasswordMinimum.style.setProperty("color", "var(--green-color)");
         }
-        
-        confirmPassword()
     }
+    confirmPassword()
 })
 
 // Function for user input validation on Confirm Password input

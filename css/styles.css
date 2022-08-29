@@ -59,12 +59,13 @@ p, pre {
 }
 
 .main {
-    margin-top: 15px;
-    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    
+    background-color: var(--background-dark);
 
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 0;
 }
@@ -118,7 +119,7 @@ p, pre {
 
 .sign-up-section {
     width: clamp(450px, 50vw, 600px);
-    height: 800px;
+    min-height: 800px;
 
     background-color: var(--background-dark);
 
@@ -229,7 +230,7 @@ span.error {
 
 #required-field-text {
     font-size: 0.75rem;
-    margin: 0;
+    /* margin: 0; */
     font-style: italic;
     width: 250px;
 
@@ -238,6 +239,7 @@ span.error {
 .sign-up-submit {
     box-sizing: border-box;
     margin: 25px;
+    padding-bottom: 3rem;
 
     flex-grow: 1;
 
@@ -282,10 +284,8 @@ span.error {
     color: var(--background-button-dark);
 }
 
-
 .footer {
     font-family: var(--font-attribution);
-    margin-top: 3rem;
     height: 3rem;
     width: 100%;
     background-color: var(--background-light);
