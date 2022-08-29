@@ -26,6 +26,7 @@
 :root {
     --black-color: #000000;
     --blue-color: blue;
+    --green-color: green;
     --red-color: red;
     --white-color: #ffffff;
     --grey-color: grey;
@@ -185,6 +186,9 @@ p, pre {
 
 .sign-up-inputs .inputs div div+p {
     margin-top: 5px;
+}
+
+.sign-up-inputs .inputs div>p {
     color: var(--white-color);
 }
 

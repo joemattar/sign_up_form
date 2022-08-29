@@ -21,6 +21,7 @@ const spanPasswordLowercase = document.querySelector(".char-lowercase");
 const spanPasswordNumber = document.querySelector(".char-number");
 const spanPasswordSymbol = document.querySelector(".char-symbol");
 const spanPasswordMinimum = document.querySelector(".char-minimum");
+const spansPassword = document.querySelectorAll(".password-error");
 
 const submitButton = document.getElementById("submit-button");
 
@@ -173,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkImagePhone.setAttribute("src", "./images/green_check.png");
         inputPhone.style.removeProperty("border-color");
     }
-})
+    })
 });
 
 // HTML Examples for Masks
@@ -190,7 +191,49 @@ Credit Card:
 <input placeholder=".... .... .... ...." data-slots="." data-accept="\d" size="19">
 */}
 
-
+    // User input validation on Password input
+    inputPassword.addEventListener("input", () => {
+        if (inputPassword.value === "") {
+            checkImagePassword.setAttribute("src", "");
+            inputPassword.style.removeProperty("border-color");
+            for (let element of spansPassword) {
+                element.textContent = "";
+            }
+        } else if (!inputPassword.validity.patternMismatch) {
+            checkImagePassword.setAttribute("src", "./images/green_check.png");
+            inputPassword.style.removeProperty("border-color");
+            for (let element of spansPassword) {
+                element.style.setProperty("color", "var(--green-color)");
+            }
+        } else if (inputPassword.validity.patternMismatch) {
+            checkImagePassword.setAttribute("src", "./images/red_x.png");
+            inputPassword.style.setProperty("border-color", "var( --red-color)");
+            spanPasswordUppercase.textContent = "PASSWORD MUST HAVE 1 UPPERCASE CHAR";
+            spanPasswordLowercase.textContent = "PASSWORD MUST HAVE 1 LOWERCASE CHAR";
+            spanPasswordNumber.textContent = "PASSWORD MUST HAVE 1 NUMBER CHAR";
+            spanPasswordSymbol.textContent = "PASSWORD MUST HAVE 1 SPECIAL CHAR";
+            spanPasswordMinimum.textContent = "PASSWORD MUST BE MINIMUM 8 CHARS";
+            for (let element of spansPassword) {
+                element.style.removeProperty("color");
+            }
+            if (inputPassword.value.match(/[A-Z]/g) !== null) {
+                spanPasswordUppercase.style.setProperty("color", "var(--green-color)");
+            }
+            if (inputPassword.value.match(/[a-z]/g) !== null) {
+                spanPasswordLowercase.style.setProperty("color", "var(--green-color)");
+            }
+            if (inputPassword.value.match(/[0-9]/g) !== null) {
+                spanPasswordNumber.style.setProperty("color", "var(--green-color)");
+            }
+            if (inputPassword.value.match(/[!#\$%&'\(\)\*\+,\-\.\/:;=>\?@\[\\\]\^_`\{\|\}~]/g) !== null) {
+                spanPasswordSymbol.style.setProperty("color", "var(--green-color)");
+            }
+            if (inputPassword.value.length >= 8) {
+                spanPasswordMinimum.style.setProperty("color", "var(--green-color)");
+            }
+            // WATCH OUT FOR PASSWORD MATCH
+            // FIX HTML FOR SPANS TEXT
+        }})
 
 // ADD VALIDATION UPON SUBMIT BUTTON CLICK
 submitButton.addEventListener("click", () => {
