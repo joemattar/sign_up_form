@@ -186,10 +186,7 @@ p, pre {
 
 .sign-up-inputs .inputs div div+p {
     margin-top: 5px;
-}
-
-.sign-up-inputs .inputs div>p {
-    color: var(--white-color);
+    height: 1rem;
 }
 
 .sign-up-inputs .inputs div input{
